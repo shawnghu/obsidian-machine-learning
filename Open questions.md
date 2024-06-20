@@ -91,7 +91,6 @@ pre-ln (layer normalization)
 
 multiplication by a low rank matrix (saves parameters because it can be factored into smaller matrices, but how bad is this for statistical expressiveness?)
 
-grokking
 scaling laws evidence
 prompt engineering as a skill
 gpt1 paper https://s3-us-west-2.amazonaws.com/openai-assets/research-covers/language-unsupervised/language_understanding_paper.pdf

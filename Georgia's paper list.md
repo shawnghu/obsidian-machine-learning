@@ -63,7 +63,7 @@ I knew this guy previously. He works on a specific kind of theory, involving dec
 		- Given the above two quotes, it's hard to say concretely that the circuit "successfully performs the task" when there are examples where it should be used where it isn't used, and there are examples where it shouldn't be used where it is used. 
 			- Put differently, maybe we have a circuit that performs "greater than", but the model doesn't actually know how to use it, so bottom line, what statements can we make about the model behavior?
 
-[# Look Before You Leap: A Universal Emergent Decomposition of Retrieval Tasks in Language Models](https://arxiv.org/abs/2312.10091)
+[Look Before You Leap: A Universal Emergent Decomposition of Retrieval Tasks in Language Models](https://arxiv.org/abs/2312.10091)
 
 ## Jacob Steinhardt
 
@@ -77,14 +77,18 @@ This guy has a lot of papers, several of which are intriguing, but not too many 
 ## Kevin Meng
 [Mass-Editing Memory in a Transformer](https://arxiv.org/pdf/2210.07229)
 - This guy did the other transformer editing paper, so this isn't that surprising to see.
+- The context/application assumed in this paper, as in the other model-editing ones, is to think of a language model as an implicit store of knowledge, like a database; fact updating corresponds to updating this knowledge store. There is a nice and comprehensive review of the work related to knowledge stores, language models as knowledge stores, and how to edit them
 - Supposedly a lot of other direct model editing techniques or "knowledge update" techniques don't scale to many examples well.
-- This paper has many of the same conceptual limitations of the other "modifying facts" papers, as well as currently being limited to the scope of "subject object relation" knowledge schemas.
+- This paper has many of the same conceptual limitations of the other "modifying facts" papers (see above discussion for "Locating and Editing..."), as well as currently being limited to the scope of "subject object relation" knowledge schemas.
 	- It actually also points out another one really clearly: They edit Michael Jordan to be a baseball player-- does this mean he was never a basketball player (ie, there was a mistake in the knowledge base before) or that he just switched sports (ie, the external world has changed)? Isn't it extremely important to distinguish between these, especially if we ask something like "what did michael jordan do in 1985?"
 	- Most damning is this: `for example, the association that “Tim Cook is CEO of Apple” must be processed separately from the opposite association that “The CEO of Apple is Tim Cook.”`
 		- If you claim to be editing the model's understanding of facts, isn't this like the lowest possible standard for achieving that?
-	- Now standard provisions about research apply: we never know what'll be useful before it really comes through, but let's say this doesn't suit my tastes.
-- The core contribution of the paper is a functionally similar method to the old paper, but with a mathematical update which uses matrix calculus (and some assumptions of linearity) to compute an update rule for a layer with respect to many different MLP layers at once. Mathematically, they also make some consideration for the fact that updating the earlier layers will have an effect on activations in later layers, and propose a method for manually "spreading out" the update magnitude across the MLP layers they deem eligible (by the same analysis for which layers are important as the previous paper).
+	- They do acknowledge some of these weaknesses openly at the end: `t does not cover spatial or temporal reasoning, mathematical knowledge, linguistic knowledge, procedural knowledge, or even symmetric relations`
+	- standard provisions about research apply: we never know what'll be useful before it really comes through, but I'm still wary of this.
+- The core contribution of the paper is a functionally similar method to the old paper, but with a mathematical update which uses matrix calculus (and some assumptions of linearity) to compute an update rule for a layer with respect to many different MLP layers at once. Mathematically, they also make some consideration for the fact that updating the earlier layers will have an effect on activations in later layers, and propose a method for "spreading out" the update magnitude across the MLP layers they deem eligible (by the same analysis for which layers are important as the previous paper).
+	- There are some major technical details I don't understand, though, which may weaken or strengthen the impressiveness of this paper. If they can ascribe enough meaning to specific MLP layers *in general* to make their update rule work, this is an impressive demonstration of manipulation of the model, even if the result is technically useless. However, it seems like they select the MLP modules associated *with a specific sequence position for this specific subject-object-relation task*, which is still kind of impressive but far less so, and it's unclear (though not impossible) how to make progress beyond this because their mathematical method is really fit to this assumption.
 - Their results are far superior to ROME on the metrics that they've defined for scales of several thousand edits, but they compare sometimes competitively with another method called FT-W, which by context is a much simpler method.
+- But, bottom line, I don't put a lot of store in the metrics they've defined due to my skepticism about the premise.
 ## Trevor Hastie
 Lots of papers in nearly pure statistics. Happens to have been a coauthor on [[Surprises in High-Dimensional Ridgeless Least Squares Interpolation]]. Not much on arxiv having to do with model editing. Recently published a paper with Stephen Boyd!
 
@@ -94,15 +98,17 @@ Also mostly statistics and applied statistics, not always to computer science pe
 
 - [Modifying Memories in Transformer Models](https://arxiv.org/pdf/2012.00363), cited by the model editing paper.
 	- It's a straightforward paper with clear prose.
+	- It shares the same stated motivation with the other papers in this family; try to use transformers as a store of knowledge or keep it up to date on facts; however, like the others, it also doesn't offer solutions to the "fundamental problems of knowledge representation" above.
 	- Basically entirely empirical in nature.
 	- Core idea: just do a fine-tuning on new facts in order to update them, but in order to avoid forgetting old facts, enforce a constraint on the maximum deviation of the parameters directly.
-		- The choice of what the maximum deviation should be
+		- The choice of what the maximum deviation should be is an important parameter, which as far as I can tell they also just determine empirically
 		- They choose the L-inf norm for empirical reasons.
-			- Since they do this, it's somewhat straightforward to enforce the constraint by just clipping gradients.
+			- Since they do this, it's somewhat straightforward to enforce the constraint by just clipping gradients. (This is really probably why they choose this norm.)
 	- One of its contributions is to do the work to generate a new dataset, against which we can measure the performance of "modified fact integration", which basically just tests how thoroughly we believe the modified fact and how badly we perform on "unrelated facts". 
 		- As mentioned elsewhere, though, when is a fact unrelated?
 		- Moreover, they are sort of only able to demonstrate this on fairly simple compositions of facts, because they had to generate the dataset programmatically.
-	- They find generally that things work best when they use their method, as opposed to doing something like just training on a mixture of old and new data. They also find that it works better across a couple of models to constrain the fine-tuning to a subset of the model (typically, a single transformer block). Again, they find these things empirically, which I find pretty uncompelling, since I don't know their strategy for picking blocks or how many things they sampled.
+	- They find generally that things work best when they use their method, as opposed to doing something like just training on a mixture of old and new data.
+	- They also find that it works better across a couple of models to constrain the fine-tuning to a subset of the model (typically, a single transformer block). Again, they find these things empirically, which I find pretty uncompelling, since I don't know their strategy for picking blocks or how many things they sampled.
 	- Other statistically expected things happen, like if you increase the number of "modified facts", then eventually you need more parameters to be fine-tunable or else there won't be enough model capacity to accommodate them.
 	- It's interesting that they find empirically that models will catastrophically forget much of their knowledge when trained on a relatively small set of modified facts. Are we sure this isn't just an artifact of the way they're doing the fine-tuning (e.g, learning rate too high)? After all, don't most LLMs have to learn a bunch of new facts without forgetting old ones too badly?
 

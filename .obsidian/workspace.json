@@ -37,18 +37,6 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "But is it really in Rome? An investigation of the ROME model editing technique.md",
-                "mode": "source",
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "e6707d0e178848bd",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
                 "file": "Georgia's paper list.md",
                 "mode": "source",
                 "source": false
@@ -68,7 +56,7 @@
             }
           }
         ],
-        "currentTab": 3
+        "currentTab": 2
       }
     ],
     "direction": "vertical"
@@ -194,28 +182,28 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "e6707d0e178848bd",
+  "active": "8fc5f65cf659770e",
   "lastOpenFiles": [
-    "CLIP.md",
+    "Open questions.md",
+    "Word Embeddings.md",
+    "The generalization error of random features regression Precise asymptotics and double descent curve.md",
+    "Surprises in High-Dimensional Ridgeless Least Squares Interpolation.md",
+    "Scaling Laws.md",
     "Georgia's paper list.md",
-    "Progress Measures for Grokking via Mechanistic Interpretability.md",
-    "Other things I have read.md",
     "But is it really in Rome? An investigation of the ROME model editing technique.md",
+    "The Information Bottleneck Theory of Deep Learning.md",
+    "Progress Measures for Grokking via Mechanistic Interpretability.md",
     "Grokking- Generalization Beyond Overfitting on Small Algorithmic Datasets.md",
     "Deep Double Descent.md",
-    "Surprises in High-Dimensional Ridgeless Least Squares Interpolation.md",
+    "Other things I have read.md",
     "Hidden Progress in Deep Learning- SGD Learns Parities Near the Computational Limit.md",
+    "CLIP.md",
     "Loose ideas.md",
     "On the benefits of overparameterization in neural networks.md",
-    "Word Embeddings.md",
     "The logit lens (technique for interpretability).md",
-    "The Information Bottleneck Theory of Deep Learning.md",
     "Invertible Neural Networks.md",
     "Justifications for the cross entropy loss.md",
     "On the idea that \"intuitions can be violated in higher dimensional spaces\".md",
-    "Open questions.md",
-    "Scaling Laws.md",
-    "The generalization error of random features regression Precise asymptotics and double descent curve.md",
     "Transformers for Images.md",
     "Untitled.md",
     "An Image is Worth 16x16 Words- Transformers for Image Recognition at Scale.md",
