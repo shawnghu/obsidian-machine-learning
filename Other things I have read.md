@@ -1,0 +1,14 @@
+- [[CLIP]]
+- [Are Emergent Abilities of Large Language Models a Mirage?](https://arxiv.org/abs/2304.15004) 
+	- I didn't like this one. I think the very premise-question of this thing is really ill-formed, and depends on a cherry-picked conception of "emergence". I don't know if anyone ever thought that with respect to the correct metric performance wasn't continuous, but the bottom line, "practical" observation is that the *effective/useful* abilities of a given model grow discontinuously.
+	- [[Hidden Progress in Deep Learning- SGD Learns Parities Near the Computational Limit]] is a paper whose approach and framing I appreciate a lot more.
+- [Against Almost Every Theory of Impact of Interpretability](https://www.lesswrong.com/posts/LNA8mubrByG7SFacm/against-almost-every-theory-of-impact-of-interpretability-1#7fNRMke9Gc4QghYyf)
+	- I really struggled to engage with this completely, possibly because it was too sprawling and I couldn't keep all the author's points in my head or because I don't have enough prior engagement with this and related fields to really judge this person's arguments myself.
+	- With that said, bottom line it's refreshing to see certain things I've thought about addressed by other people, and in particular I do agree with several of the things he said, such as:
+		- Enumerative safety/reverse engineering is not a likely or practical outcome.
+			- `Graphs like the ones just below can be overwhelming and remain very limited.`
+		- Microscope AI is not a reasonable goal due to economic incentives.
+		- Political coordination is necessary and a precursor to most work being useful, and in particular interpretability can be harmful due to "safety washing", and the obvious fact that interpretability helps capabilities
+		- For various reasons, mechanistic interpretability work seems fundamentally incapable of providing guarantees or insight into "deceptive agents".
+	- However, on the flip-side, many of the critiques do boil down to "the results aren't that impressive yet".
+	- It was a good source of links to the unreliability of some interpretations, such as the [[But is it really in Rome? An investigation of the ROME model editing technique||Rome critique]].

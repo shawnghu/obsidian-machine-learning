@@ -1,0 +1,226 @@
+{
+  "main": {
+    "id": "870d04c3deb30bee",
+    "type": "split",
+    "children": [
+      {
+        "id": "b87c9dbb8b6a7a89",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "1e73b119dbe8ab70",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Other things I have read.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "8f4dc3f9f375fa42",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Other things I have read.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "8fc5f65cf659770e",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "But is it really in Rome? An investigation of the ROME model editing technique.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "e6707d0e178848bd",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Georgia's paper list.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "654890383fab3b34",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "CLIP.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          }
+        ],
+        "currentTab": 3
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "767fa1bd484aee01",
+    "type": "split",
+    "children": [
+      {
+        "id": "1255ccd640861805",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "4fe4afab3fe3c8a6",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical"
+              }
+            }
+          },
+          {
+            "id": "a53efd84d3b28066",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              }
+            }
+          },
+          {
+            "id": "4758e49c0711c55a",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {}
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "right": {
+    "id": "a236c38f2d2e7c21",
+    "type": "split",
+    "children": [
+      {
+        "id": "c4bcef033159c265",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "93afb3f9d9d17d7d",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "Georgia's paper list.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              }
+            }
+          },
+          {
+            "id": "d8692169d44e81f9",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "file": "Georgia's paper list.md",
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              }
+            }
+          },
+          {
+            "id": "7d71415022a0dd5e",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true
+              }
+            }
+          },
+          {
+            "id": "9bd4cb93e5c2609f",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "Georgia's paper list.md"
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "switcher:Open quick switcher": false,
+      "graph:Open graph view": false,
+      "canvas:Create new canvas": false,
+      "daily-notes:Open today's daily note": false,
+      "templates:Insert template": false,
+      "command-palette:Open command palette": false
+    }
+  },
+  "active": "e6707d0e178848bd",
+  "lastOpenFiles": [
+    "CLIP.md",
+    "Georgia's paper list.md",
+    "Progress Measures for Grokking via Mechanistic Interpretability.md",
+    "Other things I have read.md",
+    "But is it really in Rome? An investigation of the ROME model editing technique.md",
+    "Grokking- Generalization Beyond Overfitting on Small Algorithmic Datasets.md",
+    "Deep Double Descent.md",
+    "Surprises in High-Dimensional Ridgeless Least Squares Interpolation.md",
+    "Hidden Progress in Deep Learning- SGD Learns Parities Near the Computational Limit.md",
+    "Loose ideas.md",
+    "On the benefits of overparameterization in neural networks.md",
+    "Word Embeddings.md",
+    "The logit lens (technique for interpretability).md",
+    "The Information Bottleneck Theory of Deep Learning.md",
+    "Invertible Neural Networks.md",
+    "Justifications for the cross entropy loss.md",
+    "On the idea that \"intuitions can be violated in higher dimensional spaces\".md",
+    "Open questions.md",
+    "Scaling Laws.md",
+    "The generalization error of random features regression Precise asymptotics and double descent curve.md",
+    "Transformers for Images.md",
+    "Untitled.md",
+    "An Image is Worth 16x16 Words- Transformers for Image Recognition at Scale.md",
+    "overparameterized.md",
+    "On.md",
+    "On the benefits of overparameterization.md"
+  ]
+}
