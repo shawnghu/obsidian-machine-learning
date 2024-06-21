@@ -1,3 +1,7 @@
+---
+tags:
+  - ConceptualSummaries
+---
 ## GloVe
 
 ## Word2Vec

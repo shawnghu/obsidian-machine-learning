@@ -1,3 +1,7 @@
+---
+tags:
+  - Papers
+---
 Way back in 2015; I remember reading about this and giving up in grad school
 https://arxiv.org/abs/1503.02406
 https://www.youtube.com/watch?v=XL07WEc2TRI&t=1102s

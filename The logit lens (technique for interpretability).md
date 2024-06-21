@@ -1,3 +1,8 @@
+---
+tags:
+  - Papers
+  - ConceptualSummaries
+---
 - [ ] [link](https://www.lesswrong.com/posts/AcKRB8wDpdaN6v6ru/interpreting-gpt-the-logit-lens#logits)
 
 - The core idea: 

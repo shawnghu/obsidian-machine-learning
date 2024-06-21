@@ -1,4 +1,4 @@
-
+[[Training language models to follow instructions with human feedback||RLHF]]
 - https://captum.ai/docs/introduction.html
 	- Integrated gradients:
 		- https://arxiv.org/abs/1703.01365
@@ -18,6 +18,7 @@
 - [Scalable Extraction of Training Data from (Production) Language Models](https://arxiv.org/pdf/2311.17035)
 - [Elephant Neural Networks: Born to Be a Continual Learner](https://arxiv.org/abs/2310.01365) (but only one citation, seems promising so just give it a small try)
 - https://sites.google.com/view/multi-game-transformers
+- [Representation Engineering: A Top-Down Approach to AI Transparency](https://arxiv.org/abs/2310.01405)
 
 - Rademacher complexity
 - Kolmogorov complexity

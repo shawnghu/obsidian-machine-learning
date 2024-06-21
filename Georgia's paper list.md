@@ -64,11 +64,25 @@ I knew this guy previously. He works on a specific kind of theory, involving dec
 			- Put differently, maybe we have a circuit that performs "greater than", but the model doesn't actually know how to use it, so bottom line, what statements can we make about the model behavior?
 
 [Look Before You Leap: A Universal Emergent Decomposition of Retrieval Tasks in Language Models](https://arxiv.org/abs/2312.10091)
+- Lots of big claims in this one:
+	- `This work presents evidence of a universal emergent modular processing of tasks across varied domains and models`
+		- `scalable causal analysis of LMs, enabling the comparative study of 18 models on 6 task domains`
+	- `We apply causal analysis... to 18 open source LMs ranging in size from 125 million to 70 billion parameters`
+	- `The shared abstract representation enables us to define and interpret experiments across tasks and models at scale, without the need for setting-specific labor`
+	- `results suggest that there exists an emergent modular decomposition of tasks that applies across models and task`
+	- `Understanding models internally is not enough to increase the operational safety of LMs... our understanding of how models solve retrieval tasks can be directly leveraged to mitigate the effect of prompt injection`
+- haven't verified them or understood the methods yet
 
 ## Jacob Steinhardt
 
 This guy has a lot of papers, several of which are intriguing, but not too many of which are directly related to mech interp or model editing.
 - [Overthinking the Truth: Understanding how Language Models Process False Demonstrations ](https://arxiv.org/abs/2307.09476) uses mechanistic ideas to try and interpret the core phenomenon of the paper.
+	- That is, the paper is concerned with understanding by what mechanism transformers, when given input that is somehow "incorrect", proceeds to follow up with output that is similarly "incorrect" (which is a natural response, as the model is trained to predict following text).
+		- They find and address the main phenomenon by essentially direct application of the logit lens technique. They simply interpret the logits at every layer in the exact same way that nostalgebraist did for the correct and incorrect demonstrations, and observe that the incorrect demonstrations start to do worse past a certain layer, so they just ablate those later layers. 
+		- They further do attention head analysis on the layers that seem to make things worse, and then ablate these heads to show that they are responsible for a large proportion of the damage (but not all or even most of it). I don't easily understand how they identified the specific heads, but probably can with a bit of time.
+	- Overall, this paper is among many others in the "IOI family" that it identifies a circuit, or specific attention heads, which are largely responsible for the behavior, via "direct"/"manual" analysis, with a programmatically generated dataset, so it is subject to the same critiques and high-level discussion as all such papers.
+	- A small note which is very interesting: ablating the "false induction heads" actually improves performance on many of these tasks even when the demonstrations were "correct", i.e, these heads do something which sort of uniformly makes the quality of the demonstration worse (this isn't an internal contradiction; its training objective was to do better at predicting text, not at completing sequences correctly).
+	- Note "overthinking" isn't really a key phenomenon or anything; it's just the name they give to giving bad output following bad input.
 - [Interpreting the Second-Order Effects of Neurons in CLIP](https://arxiv.org/abs/2406.04341) isn't that closely related either, but it seems to involve the good idea of "automatically describing [neurons]", which helps with the scale critique I have of other papers.
 	- [[CLIP]], using a vision transformer to classify images with various text outputs as the label classes.
 	- Their approach sort of "supersedes" the logit lens approach, by also taking note of second order effects (and to a lesser extent, "indirect effects").

@@ -44,19 +44,19 @@
             }
           },
           {
-            "id": "654890383fab3b34",
+            "id": "0cbc8c8df7c607e3",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "CLIP.md",
+                "file": "Georgia's paper list.md",
                 "mode": "source",
                 "source": false
               }
             }
           }
         ],
-        "currentTab": 2
+        "currentTab": 3
       }
     ],
     "direction": "vertical"
@@ -182,33 +182,33 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "8fc5f65cf659770e",
+  "active": "0cbc8c8df7c607e3",
   "lastOpenFiles": [
+    "Untitled 1.md",
+    "CLIP.md",
+    "Georgia's paper list.md",
     "Open questions.md",
     "Word Embeddings.md",
+    "Transformers for Images.md",
+    "transformer checklist.md",
+    "Training language models to follow instructions with human feedback.md",
+    "The logit lens (technique for interpretability).md",
+    "The Information Bottleneck Theory of Deep Learning.md",
     "The generalization error of random features regression Precise asymptotics and double descent curve.md",
     "Surprises in High-Dimensional Ridgeless Least Squares Interpolation.md",
-    "Scaling Laws.md",
-    "Georgia's paper list.md",
-    "But is it really in Rome? An investigation of the ROME model editing technique.md",
-    "The Information Bottleneck Theory of Deep Learning.md",
     "Progress Measures for Grokking via Mechanistic Interpretability.md",
+    "Other things I have read.md",
+    "On the idea that \"intuitions can be violated in higher dimensional spaces\".md",
+    "On the benefits of overparameterization in neural networks.md",
+    "Misc. remarks.md",
+    "Loose ideas.md",
+    "Invertible Neural Networks.md",
+    "Hidden Progress in Deep Learning- SGD Learns Parities Near the Computational Limit.md",
     "Grokking- Generalization Beyond Overfitting on Small Algorithmic Datasets.md",
     "Deep Double Descent.md",
-    "Other things I have read.md",
-    "Hidden Progress in Deep Learning- SGD Learns Parities Near the Computational Limit.md",
-    "CLIP.md",
-    "Loose ideas.md",
-    "On the benefits of overparameterization in neural networks.md",
-    "The logit lens (technique for interpretability).md",
-    "Invertible Neural Networks.md",
+    "Scaling Laws.md",
+    "But is it really in Rome? An investigation of the ROME model editing technique.md",
     "Justifications for the cross entropy loss.md",
-    "On the idea that \"intuitions can be violated in higher dimensional spaces\".md",
-    "Transformers for Images.md",
-    "Untitled.md",
-    "An Image is Worth 16x16 Words- Transformers for Image Recognition at Scale.md",
-    "overparameterized.md",
-    "On.md",
-    "On the benefits of overparameterization.md"
+    "Untitled.md"
   ]
 }

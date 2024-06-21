@@ -1,3 +1,7 @@
+---
+tags:
+  - Papers
+---
 https://mathai-iclr.github.io/papers/papers/MATHAI_29_paper.pdf
 https://www.youtube.com/watch?v=dND-7llwrpw&feature=youtu.be
 ICLR 2021, OpenAI

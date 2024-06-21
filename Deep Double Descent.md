@@ -1,3 +1,7 @@
+---
+tags:
+  - Papers
+---
 https://openai.com/index/deep-double-descent/, https://windowsontheory.org/2019/12/05/deep-double-descent/
 https://arxiv.org/pdf/1912.02292
 December 2019, Harvard and OpenAI, previously observed in https://arxiv.org/abs/1812.11118, December 2018
