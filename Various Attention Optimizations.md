@@ -1,0 +1,2 @@
+- Sparse attention, by some team in Google Research back in 2018 or 2019: just have words only attend to a fixed, small window, and then have a few special tokens that attends to everything and which everything attends to so that you can pass information around over larger distances. Also attend to a fixed proportion of random tokens, not sure if that's necessary though. O(n^1.5).
+- Flash attention

@@ -1,3 +1,5 @@
+Overthinking the Truth
+
 Try to look ML: NeurIPS ICML ICLR 
 Interpretability are these 3: ACL NAACL EMNLP
 
@@ -51,7 +53,7 @@ I knew this guy previously. He works on a specific kind of theory, involving dec
 - It's otherwise quite thorough and clearly explained.
 	- They do a large amount of neuron/activation level studies, e.g in section 4.2 they use logit-lens analysis and some logical deduction to make statements about how the greater-than operation can be computed.
 		- But again, I don't think focus on the exact mechanisms used is valuable, as much as the knowledge that a mechanism can exist to perform a specific task
-
+- how did we find the circuit for all examples in the prompt?
 - Quotes:
 	- `three increasingly different prompts: “The <noun> started in the year 17YY and ended in the year 17”, “The price of that <luxury good> ranges from $ 17YY to $ 17”, and “1599, 1607, 1633, 1679, 17YY, 17”. In all cases, a two-digit number greater than YY would be a reasonable next token`.
 		- `Similar tasks seem to use similar, but not identical, circuits.`, based just on observing this fact directly on the last task
@@ -78,9 +80,14 @@ I knew this guy previously. He works on a specific kind of theory, involving dec
 This guy has a lot of papers, several of which are intriguing, but not too many of which are directly related to mech interp or model editing.
 - [Overthinking the Truth: Understanding how Language Models Process False Demonstrations ](https://arxiv.org/abs/2307.09476) uses mechanistic ideas to try and interpret the core phenomenon of the paper.
 	- That is, the paper is concerned with understanding by what mechanism transformers, when given input that is somehow "incorrect", proceeds to follow up with output that is similarly "incorrect" (which is a natural response, as the model is trained to predict following text).
-		- They find and address the main phenomenon by essentially direct application of the logit lens technique. They simply interpret the logits at every layer in the exact same way that nostalgebraist did for the correct and incorrect demonstrations, and observe that the incorrect demonstrations start to do worse past a certain layer, so they just ablate those later layers. 
-		- They further do attention head analysis on the layers that seem to make things worse, and then ablate these heads to show that they are responsible for a large proportion of the damage (but not all or even most of it). I don't easily understand how they identified the specific heads, but probably can with a bit of time.
-	- Overall, this paper is among many others in the "IOI family" that it identifies a circuit, or specific attention heads, which are largely responsible for the behavior, via "direct"/"manual" analysis, with a programmatically generated dataset, so it is subject to the same critiques and high-level discussion as all such papers.
+		- They find and address the main phenomenon by essentially direct application of the logit lens technique. They simply interpret the logits at every layer in the exact same way that nostalgebraist did for the correct and incorrect demonstrations, and observe that the incorrect demonstrations start to do worse past a certain layer, so they just ablate those later layers (and they identify that it's the attention heads that cause the problem). 
+		- They further do attention head analysis on the layers that seem to make things worse, and then ablate these heads to show that they are responsible for a large proportion of the damage (but not all or even most of it).
+			- Their ablation is a zero ablation and not a mean ablation; as far as I can tell there is no reason they could not try a mean ablation and simply didn't get around to it.
+			- They found these heads by a sort of scientific inquiry: they came up with a theory for what sort of mechanism would result in bad behavior on incorrect demonstrations, in particular that a "false induction head" would. Then they searched for the heads that had the highest attention to the incorrect labels for members of the same class.
+			- They verified that these heads were responsible for the damage by just looking at the impact on the logits.
+				- Then, in a way, couldn't you just search for the heads that are "most responsible" by searching for the heads with the most impact on the logits? This would feel to me to be a statistically invalid approach, but also I feel that what the authors did isn't that far from that, since their method relies on understanding of the ground truth.
+			- The fundamental limitations of their approach are that their approach doesn't scale to further understanding, in the sense that they had to manually generate the hypothesis to be tested, and the manual generation involved knowing how to solve the toy problem by ourselves (i.e, "understanding of the ground truth" above).
+	- Overall, this paper is among many others in the "IOI family" that it identifies a circuit, or specific attention heads, which are largely responsible for the behavior, via "direct"/"manual" analysis, with a programmatically generated dataset, so it is subject to the same critiques and high-level discussion as all such papers. Furthermore, it also serves as another weak point of evidence in favor of the broad mathematical framework for transformers.
 	- A small note which is very interesting: ablating the "false induction heads" actually improves performance on many of these tasks even when the demonstrations were "correct", i.e, these heads do something which sort of uniformly makes the quality of the demonstration worse (this isn't an internal contradiction; its training objective was to do better at predicting text, not at completing sequences correctly).
 	- Note "overthinking" isn't really a key phenomenon or anything; it's just the name they give to giving bad output following bad input.
 - [Interpreting the Second-Order Effects of Neurons in CLIP](https://arxiv.org/abs/2406.04341) isn't that closely related either, but it seems to involve the good idea of "automatically describing [neurons]", which helps with the scale critique I have of other papers.
@@ -121,6 +128,11 @@ Also mostly statistics and applied statistics, not always to computer science pe
 	- One of its contributions is to do the work to generate a new dataset, against which we can measure the performance of "modified fact integration", which basically just tests how thoroughly we believe the modified fact and how badly we perform on "unrelated facts". 
 		- As mentioned elsewhere, though, when is a fact unrelated?
 		- Moreover, they are sort of only able to demonstrate this on fairly simple compositions of facts, because they had to generate the dataset programmatically.
+		- Concretely, without critique of the limitations of this dataset:
+			- They take existing datasets T-REx and zsRE, which are benchmarks about simple facts, encoded as (subject, relation, object), which are referred to as "evidences".
+				- These are instantiated in different ways (which they did not specify) to queries that differ superficially: e.g, can be encoded as "What is the continent that Della Pia Glacier is located?" and also "What continent is Della Pia Glacier found on?"
+			- Sometimes they take these facts and edit the object to be a different object in the dataset which is also found with this relation.
+			- Then they just measure the performance on the modified facts, and the performance on the unmodified facts, and these are their only metrics.
 	- They find generally that things work best when they use their method, as opposed to doing something like just training on a mixture of old and new data.
 	- They also find that it works better across a couple of models to constrain the fine-tuning to a subset of the model (typically, a single transformer block). Again, they find these things empirically, which I find pretty uncompelling, since I don't know their strategy for picking blocks or how many things they sampled.
 	- Other statistically expected things happen, like if you increase the number of "modified facts", then eventually you need more parameters to be fine-tunable or else there won't be enough model capacity to accommodate them.

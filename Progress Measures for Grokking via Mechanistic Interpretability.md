@@ -9,3 +9,7 @@ Also I think illustrated in the niche-popular [transformerlens notebook](https:/
 - They helpfully did the robustness study to show that this reproduces in many similar experiments
 - `In Section 5.3 we find that grokking does not occur without regularization.` in some contradiction to how I understand [[Grokking- Generalization Beyond Overfitting on Small Algorithmic Datasets||the original grokking paper]].
 - "progress measures" is [[Hidden Progress in Deep Learning- SGD Learns Parities Near the Computational Limit||this paper]].
+- Other refs:
+	- [[Towards Understanding Grokking- An Effective Theory of Representation Learning]]
+	- [[The Slingshot Mechanism- An Empirical Study of Adaptive Optimizers and the Grokking Phenomenon]]
+	- 
